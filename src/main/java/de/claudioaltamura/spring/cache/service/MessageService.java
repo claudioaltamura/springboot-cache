@@ -1,4 +1,4 @@
-package com.example.de.claudioaltamura.spring.cache.service;
+package de.claudioaltamura.spring.cache.service;
 
 import java.util.HashMap;
 import java.util.List;
@@ -11,7 +11,7 @@ import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
-import com.example.de.claudioaltamura.spring.cache.entity.Message;
+import de.claudioaltamura.spring.cache.entity.Message;
 
 @Service
 @CacheConfig(cacheNames = {"messages"})
@@ -59,5 +59,10 @@ public class MessageService {
   @CacheEvict(key = "#message.id")
   public void deleteById(Long id) {
     this.messages.remove(id);
+  }
+  
+  @CacheEvict(allEntries=true)
+  public void deleteAll(String instrument) {
+    this.messages.clear();
   }
 }

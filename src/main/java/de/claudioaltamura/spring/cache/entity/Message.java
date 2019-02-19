@@ -1,4 +1,4 @@
-package com.example.de.claudioaltamura.spring.cache.entity;
+package de.claudioaltamura.spring.cache.entity;
 
 import java.util.Objects;
 
