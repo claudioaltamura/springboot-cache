@@ -1,8 +1,8 @@
 package de.claudioaltamura.spring.cache.service;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ConcurrentMap;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.stream.Collectors;
 import javax.annotation.PostConstruct;
@@ -17,7 +17,7 @@ import de.claudioaltamura.spring.cache.entity.Message;
 @CacheConfig(cacheNames = {"messages"})
 public class MessageService {
 
-  private Map<Long, Message> messages = new HashMap<>();
+  private ConcurrentMap<Long, Message> messages = new ConcurrentHashMap<>();
   private AtomicLong idx = new AtomicLong(0);
 
   @PostConstruct
