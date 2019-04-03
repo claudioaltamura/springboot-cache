@@ -62,7 +62,7 @@ public class MessageService {
   }
   
   @CacheEvict(allEntries=true)
-  public void deleteAll(String instrument) {
+  public void deleteAll() {
     this.messages.clear();
   }
 }
